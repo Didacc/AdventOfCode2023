@@ -4,9 +4,10 @@ I'll post the challenges of the advent of code that I'm able to do these days, s
 
 Hope you find it interesting! :)
 
-**Stars/Challenges done each day:**
-Day 1: **
-Day 2:
+**Stars/Challenges done each day:**\
+Day 1: **\
+Day 2:\
+Day 3:\
 
 *Note that when both stars are done (**), the solution posted is the one for the second challenge of the day*
 
