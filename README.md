@@ -6,8 +6,8 @@ Hope you find it interesting! :)
 
 **Stars/Challenges done each day:**\
 Day 1: **\
-Day 2:\
-Day 3:\
+Day 2: **\
+Day 3:
 
 *Note that when both stars are done (**), the solution posted is the one for the second challenge of the day*
 
