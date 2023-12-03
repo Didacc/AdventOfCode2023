@@ -3,8 +3,7 @@ data = open("day3Data", "r")
 lines = data.readlines()
 symbols = "!@#$%^&*()_-+={}[]"
 
-if [8,44 ,554] in [4,68,2,44]:
-    print('h2h2')
+partialNumSum = 0
 
 before_number = ''
 after_number = ''
@@ -16,7 +15,7 @@ for iline,line in enumerate(lines):
                          lines[iline+1][ichar-1], lines[iline-1][ichar-1], lines[iline+1][ichar+1],lines[iline-1][ichar+1]]
             for adjacent in adjacents:
                 if adjacent in symbols:
-
+                    
                     for charr in reversed(line[:ichar]):
                         if charr.isnumeric():
                             before_number = charr + before_number
@@ -29,8 +28,11 @@ for iline,line in enumerate(lines):
                             break 
 
                     print("char: ",before_number+after_number, " with index: ",ichar,' in line: ',iline+1)
+                    partialNumSum += int(before_number+after_number)
                     after_number = ''
                     before_number = ''
+
+print(partialNumSum)
 
           
 
