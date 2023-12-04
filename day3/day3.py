@@ -7,12 +7,17 @@ partialNumSum = 0
 
 before_number = ''
 after_number = ''
+partNum = ''
+previousPartNum = 99
 
 for iline,line in enumerate(lines):
     for ichar,char in enumerate(line):
         if char.isnumeric():
-            adjacents = [lines[iline+1][ichar], lines[iline-1][ichar], lines[iline][ichar+1], lines[iline][ichar-1], 
+            if iline<len(lines)-1: adjacents = [lines[iline+1][ichar], lines[iline-1][ichar], lines[iline][ichar+1], lines[iline][ichar-1], 
                          lines[iline+1][ichar-1], lines[iline-1][ichar-1], lines[iline+1][ichar+1],lines[iline-1][ichar+1]]
+            elif ichar<len(line)-1: adjacents = [lines[iline-1][ichar], lines[iline][ichar+1], lines[iline][ichar-1], 
+                          lines[iline-1][ichar-1],lines[iline-1][ichar+1]]
+                
             for adjacent in adjacents:
                 if adjacent in symbols:
                     
@@ -26,12 +31,24 @@ for iline,line in enumerate(lines):
                             after_number += charr
                         else:
                             break 
+                    
 
-                    print("char: ",before_number+after_number, " with index: ",ichar,' in line: ',iline+1)
-                    partialNumSum += int(before_number+after_number)
+                    if abs(ichar-previousPartNum) > 2: partNum = before_number+after_number
+                    else: 
+                        after_number = ''
+                        before_number = ''
+                        continue
+
+
+
+                    print("partnum: ", partNum, ", previouspartnum:",previousPartNum," with index: ",ichar,' in line: ',iline+1)
+                    partialNumSum += int(partNum)
                     after_number = ''
                     before_number = ''
+                    previousPartNum = ichar
+    previousPartNum = 99
 
+#475145
 print(partialNumSum)
 
           
